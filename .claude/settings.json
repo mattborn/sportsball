@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Glob",
+      "Grep",
+      "Read",
+      "WebFetch",
+      "WebSearch"
+    ]
+  }
+}
