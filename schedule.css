@@ -1,0 +1,147 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --accent: #0bc;
+  --bg: #fff;
+  --border: rgba(0, 0, 17, .1);
+  --fg: #001;
+  --radius: 6px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000011;
+    --border: rgba(255, 255, 255, .1);
+    --fg: #fff;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font: 500 14px/1 system-ui, sans-serif;
+}
+
+header {
+  align-items: center;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+h1 {
+  font-size: 1rem;
+  letter-spacing: -.02em;
+}
+
+nav {
+  display: flex;
+  gap: .25rem;
+}
+
+nav button {
+  background: none;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  color: var(--fg);
+  cursor: pointer;
+  font: inherit;
+  opacity: .4;
+  padding: .25rem .625rem;
+  transition: opacity .15s;
+}
+
+nav button.active {
+  border-color: var(--border);
+  opacity: 1;
+}
+
+nav button:hover { opacity: 1; }
+
+.divider {
+  background: var(--border);
+  height: 1rem;
+  width: 1px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding: 1.5rem;
+}
+
+.month { display: flex; flex-direction: column; gap: .75rem; }
+
+.month h2 {
+  font-size: .875rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  opacity: .5;
+  text-transform: uppercase;
+}
+
+.days {
+  display: grid;
+  gap: .375rem;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.day {
+  background: var(--fg);
+  border-radius: var(--radius);
+  color: var(--bg);
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+  padding: .625rem .75rem;
+  transition: opacity .3s ease-out;
+}
+
+.day.hidden { display: none; }
+.day.past { opacity: .5; }
+
+.day.active {
+  box-shadow: 0 4px 16px rgba(0, 0, 17, .2), 0 12px 40px rgba(0, 0, 17, .15);
+  transform: scale(1.06);
+}
+
+.dow {
+  color: inherit;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  opacity: .4;
+  text-transform: uppercase;
+}
+
+.month.hidden { display: none; }
+
+.num {
+  font-size: 1.5rem;
+  letter-spacing: -.03em;
+}
+
+.event {
+  color: var(--accent);
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+
+.location {
+  font-size: 10px;
+  letter-spacing: .04em;
+  opacity: .4;
+}
+
+.no-events {
+  font-size: .75rem;
+  letter-spacing: .04em;
+  opacity: .4;
+}
